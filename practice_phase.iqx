@@ -1,0 +1,93 @@
+﻿<item instructions_practice>
+/1 = "images/4.jpg"
+/2 = "images/5.jpg"
+/3 = "images/6.jpg"
+/4 = "images/7.jpg"
+/5 = "images/8.jpg"
+/6 = "images/9.jpg"
+/7 = "images/10.jpg"
+</item>
+
+<picture instruction_practice_picture>
+/ items = item.instructions_practice
+/ select = sequence
+/ size = (100%, 100%)
+/ position = (50%, 50%)
+</picture>
+
+<trial practice_instruction_trial>
+/ stimulusframes = [1=instruction_practice_picture]
+/ validresponse = (57)
+</trial>
+
+<block practice_instruction_block>
+/ trials = [1-7=sequence(practice_instruction_trial)]
+/ recorddata = false
+</block>
+
+
+<item left_prac_items>
+/1 = "A"
+/2 = "B"
+/3 = "C"
+/4 = "Z"
+/5 = "X"
+/6 = "Y"
+</item>
+
+<item right_prac_items>
+/1 = "B"
+/2 = "C"
+/3 = "A"
+/4 = "X"
+/5 = "Y"
+/6 = "Z"
+</item>
+
+<text left_text>
+/items = item.left_prac_items
+/ select = sequence
+/ fontstyle = ("Arial", 20.00%, true, false, false, false, 5, 0)
+/ position = (25%, 50%)
+/ color = black
+</text>
+
+<text right_text>
+/items = item.right_prac_items
+/ select = sequence
+/ fontstyle = ("Arial", 20.00%, true, false, false, false, 5, 0)
+/ position = (75%, 50%)
+/ color = black
+</text>
+
+<trial trial_prac_left_stim>
+/ stimulustimes = [1=left_text]
+/ timeout = 600
+/ posttrialpause = 200
+/ recorddata = false
+</trial>
+
+<trial trial_prac_right_stim>
+/ stimulustimes = [1=right_text]
+/ timeout = 600
+/ posttrialpause = 200
+/ recorddata = false
+</trial>
+
+<text practice_phase_question_mark>
+/ items = item("?")
+/ fontstyle = ("Arial", 20.00%, true, false, false, false, 5, 0)
+/ position = (50%, 50%)
+/ color = black
+</text>
+
+
+<trial practice_phase_answer_trial>
+/ stimulustimes = [1=practice_phase_question_mark]
+/ validresponse = (2, 11)
+</trial>
+
+<block practice_block>
+/ trials = [1=trial_prac_left_stim, trial_prac_left_stim, trial_prac_left_stim, trial_prac_right_stim, trial_prac_right_stim, trial_prac_right_stim, practice_phase_answer_trial, trial_prac_left_stim, trial_prac_left_stim, trial_prac_left_stim, trial_prac_right_stim, trial_prac_right_stim, trial_prac_right_stim, practice_phase_answer_trial]
+</block>
+

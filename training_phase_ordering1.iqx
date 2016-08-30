@@ -1,0 +1,130 @@
+﻿<include>
+/ file = "output_inquisit/participant_1_training.txt"
+</include>
+
+<item instructions_training>
+/1 = "images/1.jpg"
+/2 = "images/2.jpg"
+/3 = "images/3.jpg"
+</item>
+
+<values>
+/trial_start_time = -1
+/trial_end_time = -1
+</values>
+
+
+<picture instruction_training_picture>
+/ items = item.instructions_training
+/ select = sequence
+/ size = (100%, 100%)
+/ position = (50%, 50%)
+</picture>
+
+<trial training_instruction_trial>
+/ stimulusframes = [1=instruction_training_picture]
+/ validresponse = (57)
+</trial>
+
+<block training_instruction_block>
+/ trials = [1-3=sequence(training_instruction_trial)]
+/ recorddata = false
+</block>
+
+<values>
+/ index = 1
+</values>
+
+<shape circle>
+/ shape = circle
+/ color = white
+/ position = (50%, 50%)
+/ size = (400, 400)
+/ erase = false
+</shape>
+
+<shape dot>
+/ shape = circle
+/ color = grey
+/ position = (5000%, 5000%)
+/ size = (75, 75)
+/ erase = false
+</shape>
+
+<shape rectangle>
+/ shape = rectangle
+/ color = transparent
+/ position = (50%, 50%)
+/ size = (400, 400)
+/ erase = false
+</shape>
+
+<shape rectangle_background>
+/ shape = rectangle
+/ color = white
+/ position = (50%, 50%)
+/ size = (400, 400)
+/ erase = false
+</shape>
+
+<shape temp>
+/ shape = rectangle
+/ color = white
+/ position = (50%, 50%)
+/ size = (0, 0)
+</shape>
+
+
+<trial training_trial>
+/ stimulusframes = [1=circle,dot,rectangle; 2=rectangle]
+/ trialduration = 500
+/ validresponse = (44, 50)
+/ responseinterrupt = immediate
+/ ontrialbegin = [
+	values.trial_start_time = script.elapsedtime
+]
+/ ontrialend = [
+	shape.dot.hposition = item.participant_1_training_dot_values_x.item(values.index)
+]
+/ ontrialend = [
+	shape.dot.vposition = item.participant_1_training_dot_values_y.item(values.index)
+]
+/ ontrialend = [
+	shape.circle.color = item.participant_1_training_colour_values.item(values.index)
+]
+/ ontrialend = [
+	shape.rectangle.color = item.participant_1_training_square_colour.item(values.index)
+]
+/ ontrialend = [
+	values.index = values.index + 1
+] 
+/ branch = [
+	if (trial.training_trial.response == 44) trial.remaining_trial
+]
+/ branch = [
+	if (trial.training_trial.response == 50) trial.remaining_trial
+]
+</trial>
+
+<trial remaining_trial>
+/ stimulusframes = [1=temp]
+/ ontrialbegin = [
+	values.trial_end_time = script.elapsedtime
+]
+/ timeout = 500 - (values.trial_end_time - values.trial_start_time)
+/ recorddata = false
+</trial>
+
+
+<trial clear_trial>
+/ stimulusframes = [1=rectangle_background]
+/ timeout = 100
+/ recorddata = false
+</trial>
+
+
+num of trials: 444
+<block training_block>
+/ trials = [1-20=training_trial, clear_trial]
+</block>
+
