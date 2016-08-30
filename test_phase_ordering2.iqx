@@ -195,6 +195,6 @@
 
 num of trials: 33
 <block test_block>
-/ trials = [1-3=trial_stim_1_dot_1,trial_stim_1_dot_2,trial_stim_1_dot_3,trial_stim_2_dot_1,trial_stim_2_dot_2,trial_stim_2_dot_3, test_phase_answer_trial]
+/ trials = [1-33=trial_stim_1_dot_1,trial_stim_1_dot_2,trial_stim_1_dot_3,trial_stim_2_dot_1,trial_stim_2_dot_2,trial_stim_2_dot_3, test_phase_answer_trial]
 </block>
 
