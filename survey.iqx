@@ -1,0 +1,125 @@
+﻿<textbox worker_id_textbox>
+/ caption="Please enter your Amazon Mechnaical Turk Worker ID"
+/ required=true
+/ position = (30%, 25%)
+</textbox>
+
+<surveypage worker_id_surveypage>
+/ questions = [1=worker_id_textbox]
+/recorddata = true
+</surveypage>
+
+
+<block worker_id_block>
+/ trials = [1=worker_id_surveypage]
+</block>
+
+
+--------------------------------
+     DEMOGRAPHICS SURVEY
+--------------------------------
+
+<textbox gender>
+/ caption="Gender:"
+/ required=true
+/ position = (10%, 15%)
+</textbox>
+
+<textbox age>
+/ caption="Age:"
+/ required=true
+/ position = (10%, 35%)
+</textbox>
+
+<textbox education>
+/ caption="Highest level of education obtained:"
+/ required=true
+/ position = (10%, 55%)
+</textbox>
+
+
+<surveypage demographics_surveypage>
+/ caption = "Please answer the following demographic questions"
+/ questions = [1=gender; 2=age; 3=education]
+/recorddata = true
+</surveypage>
+
+<radiobuttons left_right_handed>
+/ caption="left or right handed:"
+/ options=("left", "right")
+/ required=true
+/ position = (10%, 15%)
+</radiobuttons>
+
+
+<checkboxes race>
+/ caption = "Race/Ethnicity (check one or more):"
+/ options = ("White","Aboriginal/First Nations","Hispanic/Latino","African American","Middle Eastern","Indian/Pakistani/Sri Lankan", "Japanese/Korean/Chinese", "Filipino/Malaysian/Indonesian")
+/ other = raceother
+/ required = true
+/ optionvalues = ("0","1","2","3","4","5","6","7","8")
+/ position = (10%, 30%)
+</checkboxes>
+
+<textbox raceother>
+/ caption = "Some other race (please describe)"
+/ required = false
+</textbox>
+
+<radiobuttons english_language>
+/ caption="Is english your first language?"
+/ options=("Yes")
+/ required=true
+/ other = english_no
+/ position = (10%, 75%)
+</radiobuttons>
+
+<surveypage demographics_surveypage_2>
+/ caption = "Please answer the following demographic questions"
+/ questions = [1=left_right_handed;2=race;3=raceother;4=english_language]
+/recorddata = true
+</surveypage>
+
+<radiobuttons eyesight>
+/ caption="Eyesight: Do you have normal or corrected vision?"
+/ options=("Yes", "No")
+/ required=true
+/ position = (10%, 15%)
+</radiobuttons>
+
+<textbox english_no>
+/ caption = "No. When did you first learn English? :"
+/ required = false
+</textbox>
+
+<checkboxes medical_condition>
+/ caption = "Do you have or have you ever been diagnosed with any of the following medical conditions?"
+/ options = ("Psychiatric Disorder (e.g. Schizophrenia, Depression, Anxiety, OCD)","ADD, ADHD, or learning disability?","Neurological Disorder (e.g. epilepsy, brain damage)")
+/ other = medical_condition_other
+/ required = false
+/ optionvalues = ("0","1","2","3")
+/ position = (10%, 35%)
+</checkboxes>
+
+<textbox medical_condition_other>
+/ caption = "Ever lost consciousness for more than a few seconds? Explain:"
+/ required = false
+</textbox>
+
+<textbox medications>
+/ caption = "List any medications:"
+/ required = false
+/ position = (10%, 55%)
+</textbox>
+
+<surveypage demographics_surveypage_3>
+/ caption = "Please answer the following demographic questions"
+/ questions = [1=eyesight;2=medical_condition;3=medications]
+/recorddata = true
+</surveypage>
+
+
+<block demographics_block>
+/ trials = [1=demographics_surveypage;2=demographics_surveypage_2;3=demographics_surveypage_3]
+/ recorddata = true
+</block>
