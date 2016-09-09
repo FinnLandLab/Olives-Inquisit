@@ -36,37 +36,23 @@
 / index_stim2_3 = 1
 </values>
 
-
-<shape left_circle>
-/ shape = circle
-/ color = white
+<picture left_test_stim> 
+/ items = item.participant_1_training_image_stim
+/ select = sequence
+/ size = (30%, 30%)
 / position = (25%, 50%)
-/ size = (400, 400)
-</shape>
+</picture>
 
-<shape right_circle>
-/ shape = circle
-/ color = white
+<picture right_test_stim> 
+/ items = item.participant_1_training_image_stim
+/ select = sequence
+/ size = (30%, 30%)
 / position = (75%, 50%)
-/ size = (400, 400)
-</shape>	
+</picture>
 
-<shape left_dot>
-/ shape = circle
-/ color = grey
-/ position = (5000%, 5000%)
-/ size = (75, 75)
-</shape>
-
-<shape right_dot>
-/ shape = circle
-/ color = grey
-/ position = (5000%, 5000%)
-/ size = (75, 75)
-</shape>
 
 <trial trial_stim_1_dot_1>
-/ stimulustimes = [1=left_circle, left_dot]
+/ stimulustimes = [1=left_test_stim]
 / pretrialpause = 1000
 / timeout = 1600
 / posttrialpause = 200
@@ -86,7 +72,7 @@
 </trial>
 
 <trial trial_stim_1_dot_2>
-/ stimulustimes = [1=left_circle, left_dot]
+/ stimulustimes = [1=left_test_stim]
 / timeout = 600
 / posttrialpause = 200
 / recorddata = false
@@ -105,7 +91,7 @@
 </trial>
 
 <trial trial_stim_1_dot_3>
-/ stimulustimes = [1=left_circle, left_dot]
+/ stimulustimes = [1=left_test_stim]
 / timeout = 600
 / posttrialpause = 200
 / recorddata = false
@@ -124,7 +110,7 @@
 </trial>
 
 <trial trial_stim_2_dot_1>
-/ stimulustimes = [1=right_circle, right_dot]
+/ stimulustimes = [1=right_test_stim]
 / timeout = 600
 / posttrialpause = 200
 / recorddata = false
@@ -143,7 +129,7 @@
 </trial>
 
 <trial trial_stim_2_dot_2>
-/ stimulustimes = [1=right_circle, right_dot]
+/ stimulustimes = [1=right_test_stim]
 / timeout = 600
 / posttrialpause = 200
 / recorddata = false
@@ -162,7 +148,7 @@
 </trial>
 
 <trial trial_stim_2_dot_3>
-/ stimulustimes = [1=right_circle, right_dot]
+/ stimulustimes = [1=right_test_stim]
 / timeout = 600
 / posttrialpause = 200
 / recorddata = false

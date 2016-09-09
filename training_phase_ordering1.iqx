@@ -35,37 +35,13 @@
 / index = 1
 </values>
 
-<shape circle>
-/ shape = circle
-/ color = white
+<picture training_stim> 
+/ items = item.participant_1_training_image_stim
+/ select = sequence
+/ size = (30%, 30%)
 / position = (50%, 50%)
-/ size = (400, 400)
-/ erase = false
-</shape>
+</picture>
 
-<shape dot>
-/ shape = circle
-/ color = grey
-/ position = (5000%, 5000%)
-/ size = (75, 75)
-/ erase = false
-</shape>
-
-<shape rectangle>
-/ shape = rectangle
-/ color = transparent
-/ position = (50%, 50%)
-/ size = (400, 400)
-/ erase = false
-</shape>
-
-<shape rectangle_background>
-/ shape = rectangle
-/ color = white
-/ position = (50%, 50%)
-/ size = (400, 400)
-/ erase = false
-</shape>
 
 <shape temp>
 / shape = rectangle
@@ -76,24 +52,14 @@
 
 
 <trial training_trial>
-/ stimulusframes = [1=circle,dot,rectangle; 2=rectangle]
+/ stimulusframes = [1=training_stim]
 / trialduration = 500
 / validresponse = (44, 50)
-/ responseinterrupt = immediate
 / ontrialbegin = [
 	values.trial_start_time = script.elapsedtime
 ]
 / ontrialend = [
-	shape.dot.hposition = item.participant_1_training_dot_values_x.item(values.index)
-]
-/ ontrialend = [
-	shape.dot.vposition = item.participant_1_training_dot_values_y.item(values.index)
-]
-/ ontrialend = [
-	shape.circle.color = item.participant_1_training_colour_values.item(values.index)
-]
-/ ontrialend = [
-	shape.rectangle.color = item.participant_1_training_square_colour.item(values.index)
+	picture.instruction_training_picture.item = item.participant_1_training_image_stim.item(values.index)
 ]
 / ontrialend = [
 	values.index = values.index + 1
@@ -116,15 +82,9 @@
 </trial>
 
 
-<trial clear_trial>
-/ stimulusframes = [1=rectangle_background]
-/ timeout = 100
-/ recorddata = false
-</trial>
-
 
 num of trials: 444
 <block training_block>
-/ trials = [1-444=training_trial, clear_trial]
+/ trials = [1-20=training_trial]
 </block>
 
