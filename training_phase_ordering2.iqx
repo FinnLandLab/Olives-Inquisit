@@ -2,70 +2,20 @@
 / file = "output_inquisit/participant_2_training.txt"
 </include>
 
-<item instructions_training>
-/1 = "images/1.jpg"
-/2 = "images/2.jpg"
-/3 = "images/3.jpg"
-</item>
-
 <values>
 /trial_start_time = -1
 /trial_end_time = -1
+/index = 1
 </values>
 
-
-<picture instruction_training_picture>
-/ items = item.instructions_training
+<picture training_stim> 
+/ items = item.participant_2_training_image_stim
 / select = sequence
-/ size = (100%, 100%)
+/ size = (50%, 50%)
 / position = (50%, 50%)
+/ erase = false
 </picture>
 
-<trial training_instruction_trial>
-/ stimulusframes = [1=instruction_training_picture]
-/ validresponse = (57)
-</trial>
-
-<block training_instruction_block>
-/ trials = [1-3=sequence(training_instruction_trial)]
-/ recorddata = false
-</block>
-
-<values>
-/ index = 1
-</values>
-
-<shape circle>
-/ shape = circle
-/ color = white
-/ position = (50%, 50%)
-/ size = (400, 400)
-/ erase = false
-</shape>
-
-<shape dot>
-/ shape = circle
-/ color = grey
-/ position = (5000%, 5000%)
-/ size = (75, 75)
-/ erase = false
-</shape>
-
-<shape rectangle>
-/ shape = rectangle
-/ color = transparent
-/ position = (50%, 50%)
-/ size = (400, 400)
-/ erase = false
-</shape>
-
-<shape rectangle_background>
-/ shape = rectangle
-/ color = white
-/ position = (50%, 50%)
-/ size = (400, 400)
-/ erase = false
-</shape>
 
 <shape temp>
 / shape = rectangle
@@ -74,30 +24,21 @@
 / size = (0, 0)
 </shape>
 
+<shape rectangle_background>
+/ shape = rectangle
+/ color = white
+/ position = (50%, 50%)
+/ size = (5000, 5000)
+/ erase = false
+</shape>
 
 <trial training_trial>
-/ stimulusframes = [1=circle,dot,rectangle; 2=rectangle]
-/ trialduration = 500
+/ stimulusframes = [1=training_stim]
+/ trialduration = 600
 / validresponse = (44, 50)
-/ responseinterrupt = immediate
 / ontrialbegin = [
 	values.trial_start_time = script.elapsedtime
 ]
-/ ontrialend = [
-	shape.dot.hposition = item.participant_2_training_dot_values_x.item(values.index)
-]
-/ ontrialend = [
-	shape.dot.vposition = item.participant_2_training_dot_values_y.item(values.index)
-]
-/ ontrialend = [
-	shape.circle.color = item.participant_2_training_colour_values.item(values.index)
-]
-/ ontrialend = [
-	shape.rectangle.color = item.participant_2_training_square_colour.item(values.index)
-]
-/ ontrialend = [
-	values.index = values.index + 1
-] 
 / branch = [
 	if (trial.training_trial.response == 44) trial.remaining_trial
 ]
@@ -111,14 +52,13 @@
 / ontrialbegin = [
 	values.trial_end_time = script.elapsedtime
 ]
-/ timeout = 500 - (values.trial_end_time - values.trial_start_time)
+/ timeout = 600 - (values.trial_end_time - values.trial_start_time)
 / recorddata = false
 </trial>
 
-
 <trial clear_trial>
 / stimulusframes = [1=rectangle_background]
-/ timeout = 100
+/ timeout = 200
 / recorddata = false
 </trial>
 

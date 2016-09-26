@@ -36,134 +36,90 @@
 / index_stim2_3 = 1
 </values>
 
-<picture left_test_stim> 
-/ items = item.participant_1_training_image_stim
+<picture left_test_stim_1> 
+/ items = item.participant_1_test_stim1_1	
 / select = sequence
-/ size = (30%, 30%)
+/ size = (50%, 50%)
 / position = (25%, 50%)
 </picture>
 
-<picture right_test_stim> 
-/ items = item.participant_1_training_image_stim
+<picture left_test_stim_2> 
+/ items = item.participant_1_test_stim1_2	
 / select = sequence
-/ size = (30%, 30%)
-/ position = (75%, 50%)
+/ size = (50%, 50%)
+/ position = (25%, 50%)
 </picture>
 
 
+<picture left_test_stim_3> 
+/ items = item.participant_1_test_stim1_3	
+/ select = sequence
+/ size = (50%, 50%)
+/ position = (25%, 50%)
+</picture>
+
+<picture right_test_stim_1> 
+/ items = item.participant_1_test_stim2_1
+/ select = sequence
+/ size = (50%, 50%)
+/ position = (75%, 50%)
+</picture>
+
+<picture right_test_stim_2> 
+/ items = item.participant_1_test_stim2_2
+/ select = sequence
+/ size = (50%, 50%)
+/ position = (75%, 50%)
+</picture>
+
+<picture right_test_stim_3> 
+/ items = item.participant_1_test_stim2_3
+/ select = sequence
+/ size = (50%, 50%)
+/ position = (75%, 50%)
+</picture>
+
 <trial trial_stim_1_dot_1>
-/ stimulustimes = [1=left_test_stim]
+/ stimulustimes = [1=left_test_stim_1]
 / pretrialpause = 1000
 / timeout = 1600
 / posttrialpause = 200
 / recorddata = false
-/ ontrialbegin = [
-	shape.left_dot.hposition = item.participant_1_test_stim1_dots1_x.item(values.index_stim1_1)
-]
-/ ontrialbegin = [
-	shape.left_dot.vposition = item.participant_1_test_stim1_dots1_y.item(values.index_stim1_1)
-]
-/ ontrialbegin = [
-	shape.left_circle.color = item.participant_1_test_stim1_color1.item(values.index_stim1_1)
-]
-/ ontrialend = [
-	values.index_stim1_1 = values.index_stim1_1 + 1
-]
 </trial>
 
 <trial trial_stim_1_dot_2>
-/ stimulustimes = [1=left_test_stim]
+/ stimulustimes = [1=left_test_stim_2]
 / timeout = 600
 / posttrialpause = 200
 / recorddata = false
-/ ontrialbegin = [
-	shape.left_dot.hposition = item.participant_1_test_stim1_dots2_x.item(values.index_stim1_2)
-]
-/ ontrialbegin = [
-	shape.left_dot.vposition = item.participant_1_test_stim1_dots2_y.item(values.index_stim1_2)
-]
-/ ontrialbegin = [
-	shape.left_circle.color = item.participant_1_test_stim1_color2.item(values.index_stim1_2)
-]
-/ ontrialend = [
-	values.index_stim1_2 = values.index_stim1_2 + 1
-]
 </trial>
 
 <trial trial_stim_1_dot_3>
-/ stimulustimes = [1=left_test_stim]
+/ stimulustimes = [1=left_test_stim_3]
 / timeout = 600
 / posttrialpause = 200
 / recorddata = false
-/ ontrialbegin = [
-	shape.left_dot.hposition = item.participant_1_test_stim1_dots3_x.item(values.index_stim1_3)
-]
-/ ontrialbegin = [
-	shape.left_dot.vposition = item.participant_1_test_stim1_dots3_y.item(values.index_stim1_3)
-]
-/ ontrialbegin = [
-	shape.left_circle.color = item.participant_1_test_stim1_color3.item(values.index_stim1_3)
-]
-/ ontrialend = [
-	values.index_stim1_3 = values.index_stim1_3 + 1
-]
 </trial>
 
 <trial trial_stim_2_dot_1>
-/ stimulustimes = [1=right_test_stim]
+/ stimulustimes = [1=right_test_stim_1]
 / timeout = 600
 / posttrialpause = 200
 / recorddata = false
-/ ontrialbegin = [
-	shape.right_dot.hposition = item.participant_1_test_stim2_dots1_x.item(values.index_stim2_1)
-]
-/ ontrialbegin = [
-	shape.right_dot.vposition = item.participant_1_test_stim2_dots1_y.item(values.index_stim2_1)
-]
-/ ontrialbegin = [
-	shape.right_circle.color = item.participant_1_test_stim2_color1.item(values.index_stim2_1)
-]
-/ ontrialend = [
-	values.index_stim2_1 = values.index_stim2_1 + 1
-]
 </trial>
 
 <trial trial_stim_2_dot_2>
-/ stimulustimes = [1=right_test_stim]
+/ stimulustimes = [1=right_test_stim_2]
 / timeout = 600
 / posttrialpause = 200
 / recorddata = false
-/ ontrialbegin = [
-	shape.right_dot.hposition = item.participant_1_test_stim2_dots2_x.item(values.index_stim2_2)
-]
-/ ontrialbegin = [
-	shape.right_dot.vposition = item.participant_1_test_stim2_dots2_y.item(values.index_stim2_2)
-]
-/ ontrialbegin = [
-	shape.right_circle.color = item.participant_1_test_stim2_color2.item(values.index_stim2_2)
-]
-/ ontrialend = [
-	values.index_stim2_2 = values.index_stim2_2 + 1
-]
 </trial>
 
 <trial trial_stim_2_dot_3>
-/ stimulustimes = [1=right_test_stim]
+/ stimulustimes = [1=right_test_stim_3]
 / timeout = 600
 / posttrialpause = 200
 / recorddata = false
-/ ontrialbegin = [
-	shape.right_dot.hposition = item.participant_1_test_stim2_dots3_x.item(values.index_stim2_3)
-]
-/ ontrialbegin = [
-	shape.right_dot.vposition = item.participant_1_test_stim2_dots3_y.item(values.index_stim2_3)
-]
-/ ontrialbegin = [
-	shape.right_circle.color = item.participant_1_test_stim2_color3.item(values.index_stim2_3)
-]
-/ ontrialend = [
-	values.index_stim2_3 = values.index_stim2_3 + 1
-]
 </trial>
 
 <text test_phase_question_mark>

@@ -2,9 +2,10 @@
 / file = "training_phase_ordering1.iqx"
 / file = "practice_phase.iqx"
 / file = "test_phase_ordering1.iqx"
+/ file = "survey.iqx"
+/ file = "training_instructions.iqx"
 </include>
 
 <expt>
-/ blocks = [1=training_instruction_block; 2=training_block; 3=practice_instruction_block; 4=practice_block; 5=test_instruction_block; 6=test_block]
+/ blocks = [1=training_instruction_block; 2=training_block; 3=practice_instruction_block; 4=practice_block; 5=test_instruction_block; 6=test_block; 7=demographics_block; 8=worker_id_block]
 </expt>
- 

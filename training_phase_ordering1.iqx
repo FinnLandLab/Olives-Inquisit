@@ -2,44 +2,18 @@
 / file = "output_inquisit/participant_1_training.txt"
 </include>
 
-<item instructions_training>
-/1 = "images/1.jpg"
-/2 = "images/2.jpg"
-/3 = "images/3.jpg"
-</item>
-
 <values>
 /trial_start_time = -1
 /trial_end_time = -1
-</values>
-
-
-<picture instruction_training_picture>
-/ items = item.instructions_training
-/ select = sequence
-/ size = (100%, 100%)
-/ position = (50%, 50%)
-</picture>
-
-<trial training_instruction_trial>
-/ stimulusframes = [1=instruction_training_picture]
-/ validresponse = (57)
-</trial>
-
-<block training_instruction_block>
-/ trials = [1-3=sequence(training_instruction_trial)]
-/ recorddata = false
-</block>
-
-<values>
-/ index = 1
+/index = 1
 </values>
 
 <picture training_stim> 
 / items = item.participant_1_training_image_stim
 / select = sequence
-/ size = (30%, 30%)
+/ size = (50%, 50%)
 / position = (50%, 50%)
+/ erase = false
 </picture>
 
 
@@ -50,20 +24,21 @@
 / size = (0, 0)
 </shape>
 
+<shape rectangle_background>
+/ shape = rectangle
+/ color = white
+/ position = (50%, 50%)
+/ size = (5000, 5000)
+/ erase = false
+</shape>
 
 <trial training_trial>
 / stimulusframes = [1=training_stim]
-/ trialduration = 500
+/ trialduration = 600
 / validresponse = (44, 50)
 / ontrialbegin = [
 	values.trial_start_time = script.elapsedtime
 ]
-/ ontrialend = [
-	picture.instruction_training_picture.item = item.participant_1_training_image_stim.item(values.index)
-]
-/ ontrialend = [
-	values.index = values.index + 1
-] 
 / branch = [
 	if (trial.training_trial.response == 44) trial.remaining_trial
 ]
@@ -77,14 +52,19 @@
 / ontrialbegin = [
 	values.trial_end_time = script.elapsedtime
 ]
-/ timeout = 500 - (values.trial_end_time - values.trial_start_time)
+/ timeout = 600 - (values.trial_end_time - values.trial_start_time)
+/ recorddata = false
+</trial>
+
+<trial clear_trial>
+/ stimulusframes = [1=rectangle_background]
+/ timeout = 200
 / recorddata = false
 </trial>
 
 
-
 num of trials: 444
 <block training_block>
-/ trials = [1-20=training_trial]
+/ trials = [1-444=training_trial, clear_trial]
 </block>
 

@@ -1,0 +1,46 @@
+﻿<picture instruction_training_square>
+/ items = item("images/16.jpg")
+/ select = sequence
+/ size = (100%, 100%)
+/ position = (50%, 50%)
+</picture>
+
+<trial training_square_instruction_trial>
+/ stimulusframes = [1=instruction_training_square]
+/ validresponse = (44)
+</trial>
+
+<picture instruction_training_circle>
+/ items = item("images/15.jpg")
+/ select = sequence
+/ size = (100%, 100%)
+/ position = (50%, 50%)
+</picture>
+
+<trial training_circle_instruction_trial>
+/ stimulusframes = [1=instruction_training_circle]
+/ validresponse = (50)
+</trial>
+
+<item instructions_training> 
+/1 = "images/1.jpg"
+/2 = "images/2.jpg"
+/3 = "images/3.jpg"
+</item>
+
+<picture instruction_training_picture>
+/ items = item.instructions_training
+/ select = sequence
+/ size = (100%, 100%)
+/ position = (50%, 50%)
+</picture>
+
+<trial training_instruction_trial>
+/ stimulusframes = [1=instruction_training_picture]
+/ validresponse = (57)
+</trial>
+
+<block training_instruction_block>
+/ trials = [1=training_instruction_trial; 2=training_circle_instruction_trial; 3=training_square_instruction_trial; 4=training_instruction_trial; 5=training_instruction_trial]
+/ recorddata = false
+</block>
