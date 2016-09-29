@@ -97,7 +97,7 @@
 <trial trial_stim_1_dot_3>
 / stimulustimes = [1=left_test_stim_3]
 / timeout = 600
-/ posttrialpause = 200
+/ posttrialpause = 500
 / recorddata = false
 </trial>
 
