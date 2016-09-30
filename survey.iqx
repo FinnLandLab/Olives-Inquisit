@@ -1,6 +1,7 @@
 ﻿<textbox worker_id_textbox>
 / caption="Please enter your Amazon mechanical Turk Worker ID"
 / required=true
+/ textboxsize=(50%, 5%)
 / position = (30%, 25%)
 </textbox>
 
@@ -93,37 +94,17 @@
 / required = false
 </textbox>
 
-<checkboxes medical_condition>
-/ caption = "Do you have or have you ever been diagnosed with any of the following medical conditions?"
-/ options = ("Psychiatric Disorder (e.g. Schizophrenia, Depression, Anxiety, OCD)","ADD, ADHD, or learning disability?","Neurological Disorder (e.g. epilepsy, brain damage)")
-/ other = medical_condition_other
-/ required = false
-/ optionvalues = ("0","1","2","3")
-/ position = (10%, 35%)
-</checkboxes>
-
-<textbox medical_condition_other>
-/ caption = "Ever lost consciousness for more than a few seconds? Explain:"
-/ required = false
-</textbox>
-
-<textbox medications>
-/ caption = "List any medications:"
-/ required = false
-/ position = (10%, 55%)
-</textbox>
-
 <radiobuttons colorblind>
 / caption="Are you color blind?"
 / options=("Yes", "No")
 / required= true
-/ position = (10%, 75%)
+/ position = (10%, 35%)
 </radiobuttons>
 
 
 <surveypage demographics_surveypage_3>
 / caption = "Please answer the following demographic questions"
-/ questions = [1=eyesight;2=medical_condition;3=medications;4=colorblind]
+/ questions = [1=eyesight;2=colorblind]
 /recorddata = true
 </surveypage>
 
